@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Підготовка до ІТ-іспиту — КНТУ</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --text: #1c1c1c;
+    --muted: #777;
+    --accent: #5a3e1b;
+    --card-bg: #fff;
+    --card-border: #e8e2d8;
+    --card-shadow: rgba(0,0,0,0.06);
+    --tag-db: #e8f0e4;
+    --tag-db-text: #3a6b30;
+    --tag-algo: #e4ecf5;
+    --tag-algo-text: #2a4f7a;
+    --tag-eng: #f5ece4;
+    --tag-eng-text: #7a4020;
+    --day-line: #d4ccc0;
+    --placeholder-bg: #f5f3ee;
+    --placeholder-text: #bbb;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1c19;
+      --text: #e7e3da;
+      --muted: #999;
+      --accent: #d8b27a;
+      --card-bg: #252420;
+      --card-border: #3a3830;
+      --card-shadow: rgba(0,0,0,0.3);
+      --tag-db: #1e3020;
+      --tag-db-text: #7dc86e;
+      --tag-algo: #1a2535;
+      --tag-algo-text: #7aabde;
+      --tag-eng: #2e1f12;
+      --tag-eng-text: #d89060;
+      --day-line: #3a3830;
+      --placeholder-bg: #222118;
+      --placeholder-text: #444;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    padding: 3rem 1.4rem 5rem;
+  }
+
+  header {
+    max-width: 860px;
+    margin: 0 auto 3.5rem;
+  }
+  header h1 {
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  header p {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  .days {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+  }
+
+  .day-section {}
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .day-number {
+    font-size: 0.78rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .day-line {
+    flex: 1;
+    height: 1px;
+    background: var(--day-line);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.3rem 1.4rem 1.4rem;
+    box-shadow: 0 1px 4px var(--card-shadow);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    transition: box-shadow 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .card:hover {
+    box-shadow: 0 4px 14px var(--card-shadow);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    width: fit-content;
+  }
+  .tag-db    { background: var(--tag-db);   color: var(--tag-db-text);   }
+  .tag-algo  { background: var(--tag-algo); color: var(--tag-algo-text); }
+  .tag-eng   { background: var(--tag-eng);  color: var(--tag-eng-text);  }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.35;
+  }
+  .card-subtitle {
+    font-size: 0.83rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .card-arrow {
+    margin-top: auto;
+    padding-top: 0.6rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .card.placeholder {
+    background: var(--placeholder-bg);
+    border-style: dashed;
+    border-color: var(--day-line);
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .card.placeholder .card-title,
+  .card.placeholder .card-subtitle {
+    color: var(--placeholder-text);
+  }
+  .card.placeholder .card-arrow {
+    color: var(--placeholder-text);
+  }
+
+  @media (max-width: 480px) {
+    header h1 { font-size: 1.45rem; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Підготовка до ІТ-іспиту</h1>
+  <p>Конспекти лекцій по темах та днях</p>
+</header>
+
+<div class="days">
+
+  <!-- День 1 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 1</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <a class="card" href="День01_Бази-даних_частина1.html">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Реляційна модель, ключі та нормалізація</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День01_Бази-даних_частина2.html">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Транзакції та ACID, індексування, SQL та реляційна алгебра</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День01_Інженерія-ПЗ_частина1.html">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Складні системи, моделі, інформаційні системи, аналіз вимог</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- День 2 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 2</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <a class="card" href="День02_Алгоритми_частина1.html">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Складність, структури даних, пошук, сортування та графи</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День02_Алгоритми_частина2.html">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Стратегії розроблення алгоритмів та моделі обчислень</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День02_Інженерія-ПЗ_частина2.html">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Проєктування, UML, патерни, тестування та методології</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- День 3 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 3</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 4 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 4</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 5 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 5</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 6 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 6</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 7 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 7</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 8 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 8</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 9 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 9</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 10 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 10</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 11 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 11</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-db">Бази даних</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- День 12 -->
+  <section class="day-section">
+    <div class="day-header">
+      <span class="day-number">День 12</span>
+      <div class="day-line"></div>
+    </div>
+    <div class="cards">
+      <div class="card placeholder">
+        <span class="card-tag tag-algo">Алгоритми</span>
+        <div class="card-title">Частина 1</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+      <div class="card placeholder">
+        <span class="card-tag tag-eng">Інженерія ПЗ</span>
+        <div class="card-title">Частина 2</div>
+        <div class="card-subtitle">Скоро буде</div>
+        <div class="card-arrow">— —</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
