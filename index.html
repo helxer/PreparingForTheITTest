@@ -142,6 +142,14 @@
   .tag-db    { background: var(--tag-db);   color: var(--tag-db-text);   }
   .tag-algo  { background: var(--tag-algo); color: var(--tag-algo-text); }
   .tag-eng   { background: var(--tag-eng);  color: var(--tag-eng-text);  }
+  .tag-arch  { background: #e8f4f8;  color: #1a5a7a; }
+  .tag-net   { background: #f0e4f5;  color: #5a2f7a; }
+  .tag-os    { background: #e8f5e9;  color: #2a7a3a; }
+  @media (prefers-color-scheme: dark) {
+    .tag-arch  { background: #1a3a4a;  color: #7adbf0; }
+    .tag-net   { background: #3a2a4a;  color: #d0a0e8; }
+    .tag-os    { background: #1a3a20;  color: #7adb8a; }
+  }
 
   .card-title {
     font-size: 1rem;
@@ -258,18 +266,24 @@
       <div class="day-line"></div>
     </div>
     <div class="cards">
-      <div class="card placeholder">
-        <span class="card-tag tag-algo">Алгоритми</span>
-        <div class="card-title">Частина 1</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
-      <div class="card placeholder">
-        <span class="card-tag tag-algo">Алгоритми</span>
-        <div class="card-title">Частина 2</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
+      <a class="card" href="День03_Архітектура-комп'ютера.html">
+        <span class="card-tag tag-arch">Архітектура</span>
+        <div class="card-title">Комп'ютера</div>
+        <div class="card-subtitle">Бінарна логіка, системи числення, пам'ять, процесор</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День03_Операційні-системи.html">
+        <span class="card-tag tag-os">ОС</span>
+        <div class="card-title">Операційні системи</div>
+        <div class="card-subtitle">Функції, різновиди, керування ресурсами, файлові системи</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День03_Комп'ютерні-мережі.html">
+        <span class="card-tag tag-net">Мережі</span>
+        <div class="card-title">Комп'ютерні мережі</div>
+        <div class="card-subtitle">Топології, моделі OSI та TCP/IP, IP-адресація, IoT</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
     </div>
   </section>
 
