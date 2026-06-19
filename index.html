@@ -145,10 +145,18 @@
   .tag-arch  { background: #e8f4f8;  color: #1a5a7a; }
   .tag-net   { background: #f0e4f5;  color: #5a2f7a; }
   .tag-os    { background: #e8f5e9;  color: #2a7a3a; }
+  .tag-sec   { background: #f5e4e8;  color: #7a1a3a; }
+  .tag-prog  { background: #f5f0e4;  color: #7a5a1a; }
+  .tag-ai    { background: #e4f0f5;  color: #1a4a7a; }
+  .tag-math  { background: #f0e4f5;  color: #5a1a7a; }
   @media (prefers-color-scheme: dark) {
     .tag-arch  { background: #1a3a4a;  color: #7adbf0; }
     .tag-net   { background: #3a2a4a;  color: #d0a0e8; }
     .tag-os    { background: #1a3a20;  color: #7adb8a; }
+    .tag-sec   { background: #3a1a2a;  color: #f0a0c0; }
+    .tag-prog  { background: #3a2a1a;  color: #f0d070; }
+    .tag-ai    { background: #1a2a3a;  color: #70b0f0; }
+    .tag-math  { background: #2a1a3a;  color: #d0a0f0; }
   }
 
   .card-title {
@@ -294,18 +302,24 @@
       <div class="day-line"></div>
     </div>
     <div class="cards">
-      <div class="card placeholder">
-        <span class="card-tag tag-db">Бази даних</span>
-        <div class="card-title">Частина 1</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
-      <div class="card placeholder">
-        <span class="card-tag tag-db">Бази даних</span>
-        <div class="card-title">Частина 2</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
+      <a class="card" href="День04_Кібербезпека.html">
+        <span class="card-tag tag-sec">Кібербезпека</span>
+        <div class="card-title">Кібербезпека</div>
+        <div class="card-subtitle">Криптографія, шифрування, безпека мереж та систем</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День04_Основи-мов-програмування.html">
+        <span class="card-tag tag-prog">Програмування</span>
+        <div class="card-title">Основи мов програмування</div>
+        <div class="card-subtitle">Типи даних, змінні, функції, ООП та парадигми</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День04_Штучний-інтелект.html">
+        <span class="card-tag tag-ai">ШІ</span>
+        <div class="card-title">Штучний інтелект</div>
+        <div class="card-subtitle">ML, нейронні мережі, обробка даних та застосування</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
     </div>
   </section>
 
@@ -316,18 +330,18 @@
       <div class="day-line"></div>
     </div>
     <div class="cards">
-      <div class="card placeholder">
-        <span class="card-tag tag-eng">Інженерія ПЗ</span>
-        <div class="card-title">Частина 1</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
-      <div class="card placeholder">
-        <span class="card-tag tag-eng">Інженерія ПЗ</span>
-        <div class="card-title">Частина 2</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
+      <a class="card" href="День05_Математика_лінійна-алгебра.html">
+        <span class="card-tag tag-math">Математика</span>
+        <div class="card-title">Лінійна алгебра</div>
+        <div class="card-subtitle">Матриці, вектори, власні значення та простори</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День05_Математика_матаналіз.html">
+        <span class="card-tag tag-math">Математика</span>
+        <div class="card-title">Математичний аналіз</div>
+        <div class="card-subtitle">Границі, похідні, інтеграли та ряди</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
     </div>
   </section>
 
@@ -338,18 +352,18 @@
       <div class="day-line"></div>
     </div>
     <div class="cards">
-      <div class="card placeholder">
-        <span class="card-tag tag-algo">Алгоритми</span>
-        <div class="card-title">Частина 1</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
-      <div class="card placeholder">
-        <span class="card-tag tag-algo">Алгоритми</span>
-        <div class="card-title">Частина 2</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
+      <a class="card" href="День06_Математика_дискретна.html">
+        <span class="card-tag tag-math">Математика</span>
+        <div class="card-title">Дискретна математика</div>
+        <div class="card-subtitle">Множини, логіка, комбінаторика та теорія графів</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
+      <a class="card" href="День06_Математика_ймовірності-статистика.html">
+        <span class="card-tag tag-math">Математика</span>
+        <div class="card-title">Ймовірності та статистика</div>
+        <div class="card-subtitle">Розподіли, перевірка гіпотез та регресія</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
     </div>
   </section>
 
@@ -360,18 +374,12 @@
       <div class="day-line"></div>
     </div>
     <div class="cards">
-      <div class="card placeholder">
-        <span class="card-tag tag-db">Бази даних</span>
-        <div class="card-title">Частина 1</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
-      <div class="card placeholder">
-        <span class="card-tag tag-eng">Інженерія ПЗ</span>
-        <div class="card-title">Частина 2</div>
-        <div class="card-subtitle">Скоро буде</div>
-        <div class="card-arrow">— —</div>
-      </div>
+      <a class="card" href="День07_Математика_ДР-ряди-апроксимація.html">
+        <span class="card-tag tag-math">Математика</span>
+        <div class="card-title">ДР, ряди та апроксимація</div>
+        <div class="card-subtitle">Диференціальні рівняння, ряди Фур'є та числові методи</div>
+        <div class="card-arrow">Читати →</div>
+      </a>
     </div>
   </section>
 
